@@ -1,32 +1,42 @@
-*
-{
-    box-sizing: border-box;
-
-}
-body {
-    background-color:  white;
-    font-family: 'Roboto' , sans-serif;
+*{
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-}
-.container {
+body{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
     display: flex;
-
-}
-.side {
-    min-width: 320px;
-    height: 200px;
-    background-color: #fff;
-    height: 100%;
-    min-height: 100 vh;
-    border-right: 1px solid #e1e1e1;
-}
-.side .header {
-    background: linear-gradient(262deg, rgb(157, 147, 147), rgb(91, 213, 241));
-    width: 100%;
-    height: 80px;
-    box-shadow: 0 1px 8px 0 rgba(0,20,20,0.2);
-    display: flex;
+    justify-content: space-evenly;
     align-items: center;
-    padding: 20px;
+    background: linear-gradient(0deg,lightblue,grey);
+
+
+}
+#swiper{
+    height: 70vh;
+    aspect-ratio: 2 / 3;
+    perspective: 1000px;
+    perspective-origin: center 50%;
+    transform-style: preserve-3d;
+    position: raltive;
+}
+
+.card{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: translateZ(calc(-30px * var(--i))) translateY(calc(-20px * var(--i))) rotate(calc(-4deg * var(--i)));
+    filter: drop-shadow(2px 2px 2px rgba);
+    
+}
+.card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
 }
