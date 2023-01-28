@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flight</title>
+    <link rel = "stylesheet" href= "style.css">
+</head>
+<style>
+  h1 {
+    text-align: center;
+  }
+  p{
+    text-align: center;
+  }
+  input {
+    text-align: center;
+  }
+  button{
+    text-align: center;
+  }
+  label{
+    text-align: center;
+  }
+</style>
+<body >
+<h1> Flight Data</h1>
+<div id="EmployeeLogin">
+    <p><a href="employee.html">Employee Login</a></p>
+</div>
+
+    
+<label for="boarding-number" >Boarding Pass #:</label>
+  <input type="text" id="boarding-number" onchange="askForInput()">
+  <div id="additional-input"></div>
+  <button onsubmit="submitData()">Submit</button>
+
+  <script>
+    function askForInput() {
+      var additionalInput = document.createElement("input");
+      additionalInput.type = "text";
+      additionalInput.placeholder = "Name";
+      additionalInput.id = "additional-info"
+      var additionalInputContainer = document.getElementById("additional-input");
+      additionalInputContainer.appendChild(additionalInput);
+
+      var additionalInputContainer = document.getElementById("additional-input");
+      additionalInputContainer.appendChild(additionalInput);
+    }
+    function submitData(){
+      var boardingNumber = document.getElementById("boarding-number").value;
+      var additionalInfo = document.getElementById("additional-info").value;
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "your-server-url", true);
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          // handle response from server
+        }
+      };
+    document.getElementById("myForm").addEventListener("keydown", function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      document.getElementById("myForm").submit();
+    }
+  });
+  function submitForm(){
+    var boardingNumber = document.getElementById("boardingNumber").value;
+    alert("Your boarding number is " + boardingNumber);
+  }
+
+      xhr.send(JSON.stringify({boardingNumber: boardingNumber, additionalInfo: additionalInfo}));
+     }
+    </script>
+</body>
+
+
+</html> 

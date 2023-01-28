@@ -1,0 +1,9 @@
+body {
+    background-image: url("AAlogo.png");
+    background-repeat: no-repeat, repeat;
+    background-size: 200px;
+}
+
+#EmployeeLogin{
+    background-color: purple;
+}
