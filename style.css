@@ -1,42 +1,102 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body{
+  }
+  
+  html,
+  body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+  }
+  
+  body {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background: linear-gradient(0deg,lightblue,grey);
-
-
-}
-#swiper{
+    background: linear-gradient(0deg, rgb(144, 138, 136), rgb(77, 74, 75)) no-repeat;
+  }
+  
+  #swiper {
     height: 70vh;
     aspect-ratio: 2 / 3;
     perspective: 1000px;
     perspective-origin: center 50%;
     transform-style: preserve-3d;
-    position: raltive;
-}
-
-.card{
+    position: relative;
+  }
+  
+  .card {
     width: 100%;
     height: 100%;
     position: absolute;
     border-radius: 20px;
     overflow: hidden;
     transform: translateZ(calc(-30px * var(--i))) translateY(calc(-20px * var(--i))) rotate(calc(-4deg * var(--i)));
-    filter: drop-shadow(2px 2px 2px rgba);
-    
-}
-.card img{
+    filter: drop-shadow(2px 2px 20px rgba(0, 0, 0, 0.5));
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.5s;
+  }
+  
+  .card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: 50% 50%;
-}
+  }
+  
+  #Check,
+  #Not {
+    font-size: 10vh;
+    border-radius: 10%;
+    padding: 0px;
+    position: relative;
+    z-index: 1;
+    animation-name: animation1;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+    
+    animation-play-state: paused;
+  }
+  
+  #Check.trigger,
+  #Not.trigger {
+    animation-name: animation2;
+  }
+  
+  #Check{
+    color: rgb(177, 18, 18);
+    background-color: rgba(21, 19, 19, 0.5);
+  }
+  
+  #Not{
+    color: rgb(18, 239, 44);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  @keyframes animation1 {
+  
+    0%,
+    100% {
+      opacity: 2;
+    }
+  
+    50% {
+      opacity: 3;
+    }
+  }
+  
+  @keyframes animation2 {
+  
+    0%,
+    100% {
+      opacity: 2;
+    }
+  
+    50% {
+      opacity: 3;
+    }
+  }
