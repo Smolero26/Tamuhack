@@ -5,18 +5,25 @@ const dislike = document.querySelector('#dislike');
 
 // constants
 const urls = [
-  'https://source.unsplash.com/random/1000x1000/?sky',
-  'https://source.unsplash.com/random/1000x1000/?landscape',
-  'https://source.unsplash.com/random/1000x1000/?ocean',
-  'https://source.unsplash.com/random/1000x1000/?moutain',
-  'https://source.unsplash.com/random/1000x1000/?forest'
+    
 ];
+
+const title = [
+    'PIMCO',
+    'American Airlines',
+    'USAA',
+    'WolframAlpha',
+    'GM',
+    'Golden Sachs'
+];
+let length = title.length;
+
 
 // variables
 let cardCount = 0;
 
 // functions
-function appendNewCard() {
+function appendNewCard(title) {
   const card = new Card({
     imageUrl: urls[cardCount % 5],
     onDismiss: appendNewCard,
@@ -27,18 +34,19 @@ function appendNewCard() {
     onDislike: () => {
       dislike.style.animationPlayState = 'running';
       dislike.classList.toggle('trigger');
-    }
+    },
+    title
   });
   swiper.append(card.element);
   cardCount++;
 
   const cards = swiper.querySelectorAll('.card:not(.dismissing)');
   cards.forEach((card, index) => {
-    card.style.setProperty('--i', index);
+     card.style.setProperty('--i', index);
   });
 }
 
 // first 5 cards
-for (let i = 0; i < 5; i++) {
-  appendNewCard();
+for (let i = 0; i < length; i++) {
+  appendNewCard(title[i]);
 }

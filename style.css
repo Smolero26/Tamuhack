@@ -17,6 +17,7 @@
     align-items: center;
     background: linear-gradient(0deg, rgb(144, 138, 136), rgb(77, 74, 75)) no-repeat;
   }
+
   
   #swiper {
     height: 70vh;
@@ -38,6 +39,7 @@
     cursor: pointer;
     user-select: none;
     transition: transform 0.5s;
+    background-color: white;
   }
   
   .card img {
@@ -45,6 +47,13 @@
     height: 100%;
     object-fit: cover;
     object-position: 50% 50%;
+    display: inline-block;
+    pointer-events: none;
+  }
+
+  .card h1 {
+    display: inline-block;
+    pointer-events: none;
   }
   
   #Check,
