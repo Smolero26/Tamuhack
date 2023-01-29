@@ -3,12 +3,14 @@ class Card {
       imageUrl,
       onDismiss,
       onLike,
-      onDislike
+      onDislike,
+      title
     }) {
       this.imageUrl = imageUrl;
       this.onDismiss = onDismiss;
       this.onLike = onLike;
       this.onDislike = onDislike;
+      this.title = title;
       this.#init();
     }
   
@@ -26,6 +28,9 @@ class Card {
     #init = () => {
       const card = document.createElement('div');
       card.classList.add('card');
+      const title = document.createElement('h1');
+      title.textContent = this.title || this.title;
+      card.append(title);
       const img = document.createElement('img');
       img.src = this.imageUrl;
       card.append(img);
@@ -81,6 +86,7 @@ class Card {
     // mouse event handlers
     #handleMouseMove = (e) => {
       e.preventDefault();
+      console.log('asda')
       if (!this.#startPoint) return;
       const { clientX, clientY } = e;
       this.#handleMove(clientX, clientY);
